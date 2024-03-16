@@ -3,15 +3,6 @@
 #include "Spaceship.h"
 
 
-/*
-1-Constructor ve Destructor eklenecek
-2-
-3-
-4-
-5-
-*/
-
-
 class FastShip :public Spaceship {
 public:
     FastShip(int _flee, float _damageMultiplier) : Spaceship(_flee, _damageMultiplier) {};
