@@ -1,12 +1,15 @@
 #include <iostream>
 #include "event.h"
 #include "spaceship.h"
+#include "SpaceshipTypes.h"
+#include "functions.h"
 
 int main() {
-	int shipSelector;
+	
+std::cout << "Welcome to Space Voyager.\n";
+RandomEventGenerator();
 
-std:cout << "Welcome to Space Voyager.\n";
-
+return 0;
 
 }
 
