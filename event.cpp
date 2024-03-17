@@ -1,9 +1,11 @@
 #include "event.h"
 #include "spaceship.h"
 #include "SpaceshipTypes.h"
+#include "functions.h"
 
 
 void events::AstreoidBelt() {
+	std::shared_ptr<Spaceship> selectedShip = nullptr;
 	int posibility, i;
 	posibility = RandomNumberGenerator(0, 1 );
 std::cout << "You're now entering a Astreoid Belt.\n";
@@ -13,9 +15,9 @@ std::cout << "You're now entering a Astreoid Belt.\n";
 
 	if (posibility == 1) {
 		std::cout << "Our ship has taken damage while passing the Astreoid belt.\n";
-		damageTaken += normalDmg * selectedShip()->getHp();
+		damageTaken += normalDmg * selectedShip->getHp();
 		totalDmg = normalDmg + damageTaken;
-		selectedShip()->setHp(selectedShip()->getHp() - totalDmg);
+		selectedShip->setHp(selectedShip->getHp() - totalDmg);
 	}
 	else {
 		std::cout << "We've successfully passed Astreoid belt without taking any damage.\n";
@@ -33,13 +35,14 @@ std::cout << "You're now entering a Astreoid Belt.\n";
 
 
 void events::AbondenedPlanet() {
+	std::shared_ptr<Spaceship> selectedShip = nullptr;
 	int posibility, i;
 		posibility = RandomNumberGenerator(0, 2);
 std:cout << "We've found a abondened planet\n";
 
 	if (posibility == 0) {
 	std::cout << "We've found a treausure\n";
-		selectedShip()->setCash(selectedShip()->getCash() + 10);
+		selectedShip->setCash(selectedShip->getCash() + 10);
 	}
 	else if (posibility == 1) {
 	std:cout << "Planet is completely abondened.\n";
@@ -59,6 +62,7 @@ std:cout << "We've found a abondened planet\n";
 
 
 void events::SpacePirates() {
+	std::shared_ptr<Spaceship> selectedShip = nullptr;
 	int posibility1, posibility2, dialogueOption, tributePosibility, i;
 	int IWantToFlee;
 
@@ -79,15 +83,15 @@ std:cin >> dialogueOption;
 	if (dialogueOption == 1) {
 		switch (tributePosibility) {
 		case 0:
-			selectedShip()->setCash(selectedShip()->getCash() - 10);
+			selectedShip->setCash(selectedShip->getCash() - 10);
 		std::cout << "Pirates have taken 10 credits.\nPirates:We better not see you around here any time soon.\n";
 			break;
 		case 1:
-			selectedShip()->setCash(selectedShip()->getCash() - 20);
+			selectedShip->setCash(selectedShip->getCash() - 20);
 		std::cout << "Pirates have taken 20 credits.\nPirates:We better not see you around here any time soon.\n";
 			break;
 		case 2:
-			selectedShip()->setCash((selectedShip()->getCash() - 30);
+			selectedShip->setCash(selectedShip->getCash() - 30);
 		std::cout << "Pirates have taken 30 credits.\nPirates:We better not see you around here any time soon.\n";
 			break;
 		}
@@ -97,13 +101,13 @@ std:cin >> dialogueOption;
 	if (dialogueOption == 2) {
 		switch (posibility2) {
 		case 0:
-			damageTaken += normalDmg * selectedShip()->getHp();
+			damageTaken += normalDmg * selectedShip->getHp();
 			totalDmg = normalDmg + damageTaken;
-			selectedShip()->setHp(selectedShip()->getHp() - totalDmg);
+			selectedShip->setHp(selectedShip->getHp() - totalDmg);
 		std::cout << "We've defeated the pirates.\n";
 			break;
 		case 1:
-			selectedShip()->setCash(selectedShip()->getCash() + 10);
+			selectedShip->setCash(selectedShip->getCash() + 10);
 		std::cout << "We've defeated those pirates.\n";
 			break;
 		}
@@ -111,15 +115,15 @@ std:cin >> dialogueOption;
 
 
 	if (dialogueOption == 3) {
-		if (selectedShip()->getCash() >= 33) {
+		if (selectedShip->getCash() >= 33) {
 			int fled = RandomNumberGenerator(0, 100);
-			if (fled < selectedShip()->getEscapePosibility()) {
+			if (fled < selectedShip->getEscapePosibility()) {
 			std::cout << "We've escaped successfully.\n";
-				selectedShip()->setFuel(selectedShip()->getFuel() - 33);
+				selectedShip->setFuel(selectedShip->getFuel() - 33);
 			}
 			else {
 			std::cout << "We've failed to flee.\n";
-				selectedShip()->setFuel(selectedShip()->getFuel() - 33);
+				selectedShip->setFuel(selectedShip->getFuel() - 33);
 			events:SpacePirates;
 			}
 		}
