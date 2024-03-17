@@ -1,3 +1,6 @@
+#ifndef BIL142_EVENTS_H
+#define BIL142_EVENTS_H
+
 #pragma once
 #include <iostream>
 #include "spaceship.h"
@@ -9,3 +12,5 @@ public:
 	void AbondenedPlanet();
 	void SpacePirates();
 };
+
+#endif //BIL142_EVENTS_H
