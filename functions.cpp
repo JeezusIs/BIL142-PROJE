@@ -11,7 +11,7 @@ int RandomNumberGenerator(int min, int max) {
     return min + rand() % (max - min + 1);
 }
 
-std::shared_ptr<Spaceship> selectedShip() {
+std::shared_ptr<Spaceship> getSelectedShip() {
     int shipSelector;
     std::cout << "Please select your ship type. \n1-Balanced ship\n2-Fast ship\n3-Powerful ship\n";
     std::cin >> shipSelector;
@@ -33,8 +33,8 @@ std::shared_ptr<Spaceship> selectedShip() {
 
 
 void RandomEventGenerator() {
-    std::shared_ptr<Spaceship> selectedShip = nullptr;
-    selectedShip->status();
+    std::shared_ptr<Spaceship> getSelectedShip = nullptr;
+    getSelectedShip->status();
     int eventCounter{ 0 }, eventFirst{ 1 }, eventLast{ 3 }, totalEvent{ 5 };
     do {
         int eventNumber = RandomNumberGenerator(eventFirst, eventLast);
@@ -42,29 +42,29 @@ void RandomEventGenerator() {
         case 1:
             ++eventCounter;
             events::AstreoidBelt;
-            selectedShip->status();
+            getSelectedShip->status();
             break;
         case 2:
             ++eventCounter;
             events::AbondenedPlanet;
-            selectedShip->status();
+            getSelectedShip->status();
             break;
         case 3:
             ++eventCounter;
             events::SpacePirates;
-            selectedShip->status();
+            getSelectedShip->status();
             break;
         default:
             break;
         }
-        if (selectedShip->getFuel() <= 1) {
+        if (getSelectedShip->getFuel() <= 1) {
             std::cout << "Low fuel! GAME OVER...\n";
             break;
         }
-        else if (selectedShip->getHp() <= 1) {
+        else if (getSelectedShip->getHp() <= 1) {
             std::cout << "Low health! GAME OVER...\n";
         }
-    } while (eventCounter < totalEvent) {
+    } while (eventCounter < totalEvent); {
         if (eventCounter == totalEvent) {
             std::cout << "Congratilations, you've finished the game!\n";
         }
@@ -76,7 +76,7 @@ void RandomEventGenerator() {
 void ScoreCalculator() {
     std::shared_ptr<Spaceship> selectedShip = nullptr;
     int healthMultiplier{ 10 }, fuelMultiplier{ 5 }, cashMultiplier{ 10 };
-    int endGameScore;
+    float endGameScore;
     endGameScore = (selectedShip->getHp() * healthMultiplier) + (selectedShip->getFuel() * fuelMultiplier) + (selectedShip->getCash() * cashMultiplier);
 
 }
