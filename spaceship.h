@@ -30,7 +30,7 @@ public:
     inline float getDamageMultiplier() const {
         return damageMultiplier;
     }
-    inline int getEscapePossibility() const {
+    inline int getEscapePosibility() const {
         return flee_posibility;
     }
 
