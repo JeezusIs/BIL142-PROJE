@@ -1,3 +1,6 @@
+#ifndef BIL142_SPACESHIP_H
+#define BIL142_SPACESHIP_H
+
 #pragma once
 #include <iostream>
 #include "functions.h"
@@ -7,7 +10,7 @@ using namespace std;
 class Spaceship {
 public:
     Spaceship() = default;
-    Spaceship(int _flee, int _damageMultiplier) : flee_posibility{ _flee }, damageMultiplier{ _damageMultiplier } {};
+    Spaceship(int _flee, float _damageMultiplier) : flee_posibility{ _flee }, damageMultiplier{ _damageMultiplier } {};
 
     inline float getHp() const {
         return Hp;
@@ -44,3 +47,5 @@ protected:
     float damageMultiplier{ 0 };
     int flee_posibility{ 0 };
 };
+
+#endif //BIL142_SPACESHIP_H
