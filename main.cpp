@@ -1,14 +1,13 @@
 #include <iostream>
-#include "event.h"
-#include "spaceship.h"
-#include "SpaceshipTypes.h"
-#include "functions.h"
-
+#include "Event.h"
+#include "Spaceship.h"
+#include "Manager.h"
+#include <memory>
 int main() {
-	
-std::cout << "Welcome to Space Voyager.\n";
-RandomEventGenerator();
-
-return 0;
-
+    std::cout<<"Welcome to Space Voyager\n";
+    std::shared_ptr<Spaceship>ship=getSelectedShip();
+    RandomEventGenerator(ship);
+    ScoreCalculator(ship);
+    std::cout<<"The game has ended\n";
+    return 0;
 }
