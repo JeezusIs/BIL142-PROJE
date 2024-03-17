@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
-#include "Spaceship.h"
+#include "spaceship.h"
+#include "SpaceshipTypes.h"
 #include <memory> 
  
 int RandomNumberGenerator(int num1, int num2);
