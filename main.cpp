@@ -12,4 +12,3 @@ RandomEventGenerator();
 return 0;
 
 }
-
